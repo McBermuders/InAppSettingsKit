@@ -169,8 +169,10 @@ CGRect IASKCGRectSwap(CGRect rect);
 	// so reload that row
 	NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
 	if(selectedIndexPath) {
+        /*TODO test after ios7 is released
 		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] 
 							  withRowAnimation:UITableViewRowAnimationNone];
+         */
 		// and reselect it, so we get the nice default deselect animation from UITableViewController
 		[self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 	}
@@ -892,9 +894,11 @@ static NSDictionary *oldUserDefaults = nil;
 			[indexPathsToUpdate removeObject:[self.tableView indexPathForCell:cell]];
 		}
 	}
+    /*TODO test after ios7 is released
 	if (indexPathsToUpdate.count) {
-		[self.tableView reloadRowsAtIndexPaths:indexPathsToUpdate withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadRowsAtIndexPaths:indexPathsToUpdate withRowAnimation:UITableViewRowAnimationNone];
 	}
+     */
 }
 
 - (void)reload {
